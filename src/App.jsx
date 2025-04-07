@@ -14,13 +14,20 @@ function App() {
 
 
 
-  const handleMarkedAsRead = (time) => {
+  const handleMarkedAsRead = (time, id) => {
     // setReadingCount(readingCount + time);
     const newTime = readingCount + time;
     setReadingCount(newTime);
+
+    // removeFromBookMark(id);
   }
 
-  console.log(readingCount);
+  // console.log(readingCount);
+
+  // const removeFromBookMark = (id) => {
+  //   const remainingBookMark = bookMarked.filter(mark => mark.id !== id);
+  //   console.log(remainingBookMark);
+  // }
 
 
   return (
@@ -39,7 +46,7 @@ function App() {
           <h1>Bookmark Count : {bookMarked.length}</h1>
 
           {
-            bookMarked.map(marked => <p>{marked.title}</p>)
+            bookMarked.map(marked => <p className='bg-amber-700 p-2 m-2 rounded-2xl text-white shadow-2xl'>{marked.title}</p>)
           }
 
         </div>
