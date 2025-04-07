@@ -6,12 +6,22 @@ import Navbar from './components/Navbar/Navbar'
 function App() {
 
   const [bookMarked, setBookMarked] = useState([]);
+  const [readingCount, setReadingCount] = useState(0);
 
   const handleBookMark = (blog) => {
     setBookMarked([...bookMarked, blog]);
   }
 
-  console.log(bookMarked);
+
+
+  const handleMarkedAsRead = (time) => {
+    // setReadingCount(readingCount + time);
+    const newTime = readingCount + time;
+    setReadingCount(newTime);
+  }
+
+  console.log(readingCount);
+
 
   return (
     <>
@@ -22,11 +32,11 @@ function App() {
 
       <div className="main-container flex text-center">
         <div className="left-container w-[70%]">
-          <Blogs handleBookMark={handleBookMark}></Blogs>
+          <Blogs handleBookMark={handleBookMark} handleMarkedAsRead={handleMarkedAsRead}></Blogs>
         </div>
         <div className="right-container w-[30%] border-2">
-          <h1>Reading Time : 0</h1>
-          <h1>Bookmark Count : 0</h1>
+          <h1>Reading Time : {readingCount}</h1>
+          <h1>Bookmark Count : {bookMarked.length}</h1>
 
           {
             bookMarked.map(marked => <p>{marked.title}</p>)
