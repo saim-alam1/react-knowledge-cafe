@@ -6,6 +6,7 @@ const Blog = ({ blog, handleBookMark, handleMarkedAsRead }) => {
   // console.log(props.blog);
   // const { blog } = props;
   // console.log(blog);
+
   return (
     <div className='m-2'>
       <div className="card bg-base-100 w-96 shadow-sm">
